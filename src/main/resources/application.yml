@@ -13,5 +13,6 @@ github:
     accessTokenUri: https://github.com/login/oauth/access_token
     userAuthorizationUri: https://github.com/login/oauth/authorize
     clientAuthenticationScheme: form
+    scope: user:email
   resource:
     userInfoUri: https://api.github.com/user
