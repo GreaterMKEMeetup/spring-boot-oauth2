@@ -25,6 +25,8 @@
     <div>
         <button ng-click="home.logout()" class="btn btn-primary">Logout</button>
     </div>
+
+    <span ng-repeat="scope in scopes">{{scope}}</span>
 </div>
 <script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
 <script type="text/javascript">
@@ -35,6 +37,12 @@
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
       }).controller("home", function($http, $location) {
     var self = this;
+
+    $http.get("/scopes").success(function(data) {
+        console.log(data);
+        self.scopes = data;
+    });
+
     $http.get("/profile").success(function(data) {
       if (data.name) {
         self.user = data.name;
@@ -52,7 +60,7 @@
         self.authenticated = false;
         $location.path("/");
       }).error(function(data) {
-        console.log("Logout failed")
+        console.log("Logout failed");
         self.authenticated = false;
       });
     };
