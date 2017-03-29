@@ -1,0 +1,17 @@
+security:
+  oauth2:
+    client:
+      client-id: stateless-oauth
+      client-secret: gmke$3cr3t
+      scope: read,write
+      auto-approve-scopes: '.*'
+
+github:
+  client:
+    clientId: 136ad2a860bc33f62710
+    clientSecret: 0b2b799f34b3b827cff656d11f3ed3ecc62e7cb5
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
